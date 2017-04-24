@@ -81,3 +81,12 @@ services:
     #
     # // same code using repository services
     # $posts = $this->get('app.post_repository')->findAll();
+    app.finder:
+        class: Symfony\Component\Finder\Finder
+        public: false
+
+    app.explorer_finder:
+        class: AppBundle\Finder\ExplorerFinder
+        arguments:
+            - '@app.finder'
+            - '%kernel.root_dir%/../../data'

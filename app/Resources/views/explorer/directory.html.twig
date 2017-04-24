@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_index' %}
+
+{% block main %}
+    {% for finder in directory %}
+        <article class="post">
+            <h2>
+                <a href="#">
+                    {{ finder.basename }}
+                </a>
+            </h2>
+        </article>
+    {% else %}
+        <div class="well">{{ 'post.no_posts_found'|trans }}</div>
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ render(controller('AppBundle:Security:loginForm')) }}
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
