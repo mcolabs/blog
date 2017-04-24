@@ -143,10 +143,10 @@ HELP
         if (empty($username)) {
             throw new \Exception('The username can not be empty.');
         }
-
-        if (1 !== preg_match('/^[a-z_]+$/', $username)) {
-            throw new \Exception('The username must contain only lowercase latin characters and underscores.');
-        }
+//
+//        if (1 !== preg_match('/^[a-z_]+$/', $username)) {
+//            throw new \Exception('The username must contain only lowercase latin characters and underscores.');
+//        }
 
         return $username;
     }
